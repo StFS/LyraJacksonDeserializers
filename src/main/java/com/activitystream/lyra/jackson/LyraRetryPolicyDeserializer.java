@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import net.jodah.lyra.retry.RetryPolicy;
+import net.jodah.lyra.config.RetryPolicy;
 import net.jodah.lyra.util.Duration;
 
 import java.io.IOException;
@@ -24,24 +24,24 @@ public class LyraRetryPolicyDeserializer extends StdDeserializer<RetryPolicy> {
 
     RetryPolicy rp = new RetryPolicy();
 
-    if (node.has("retryInterval")) {
-      rp.withRetryInterval(Duration.of(node.get("retryInterval").asText()));
+    if (node.has("interval")) {
+      rp.withInterval(Duration.of(node.get("interval").asText()));
     }
     if (node.has("maxDuration")) {
       rp.withMaxDuration(Duration.of(node.get("maxDuration").asText()));
     }
-    if (node.has("maxRetries")) {
-      rp.withMaxRetries(node.get("maxRetries").asInt());
+    if (node.has("maxAttempts")) {
+      rp.withMaxAttempts(node.get("maxAttempts").asInt());
     }
 
     if (node.has("backoff")) {
       JsonNode backoffNode = node.get("backoff");
-      Duration retryInterval = Duration.of(backoffNode.get("retryInterval").asText());
-      Duration maxRetryInterval = Duration.of(backoffNode.get("maxRetryInterval").asText());
-      if (backoffNode.has("retryIntervalMultiplier")) {
-        rp.withBackoff(retryInterval, maxRetryInterval, backoffNode.get("retryIntervalMultiplier").asInt());
+      Duration interval = Duration.of(backoffNode.get("interval").asText());
+      Duration maxInterval = Duration.of(backoffNode.get("maxInterval").asText());
+      if (backoffNode.has("intervalMultiplier")) {
+        rp.withBackoff(interval, maxInterval, backoffNode.get("intervalMultiplier").asInt());
       } else {
-        rp.withBackoff(retryInterval, maxRetryInterval);
+        rp.withBackoff(interval, maxInterval);
       }
     }
 

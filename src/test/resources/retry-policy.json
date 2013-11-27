@@ -1,6 +1,6 @@
 {
-  "retryInterval": "2 seconds",
-  "backoff": {"retryInterval": "2 seconds", "maxRetryInterval": "5 minutes", "retryIntervalMultiplier": 2},
+  "interval": "2 seconds",
+  "backoff": {"interval": "2 seconds", "maxInterval": "5 minutes", "intervalMultiplier": 2},
   "maxDuration": "30 minutes",
   "maxRetries": 100
 }
