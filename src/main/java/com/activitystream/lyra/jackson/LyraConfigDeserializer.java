@@ -11,12 +11,12 @@ import java.io.IOException;
 
 public class LyraConfigDeserializer extends StdDeserializer<Config> {
 
-    public LyraConfigDeserializer() {
-        super(Config.class);
-    }
+  public LyraConfigDeserializer() {
+    super(Config.class);
+  }
 
-    @Override
-    public Config deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        return null;
-    }
+  @Override
+  public Config deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    return null;
+  }
 }

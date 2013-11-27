@@ -5,5 +5,6 @@
   "duration5seconds": "5s",
   "duration5minutes": "5m",
   "duration5hours": "5h",
-  "duration5days": "5days"
+  "duration5days": "5days",
+  "durationInfinite": "infinite"
 }

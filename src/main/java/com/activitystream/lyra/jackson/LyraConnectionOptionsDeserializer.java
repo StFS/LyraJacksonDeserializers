@@ -4,18 +4,18 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import net.jodah.lyra.retry.RetryPolicy;
+import net.jodah.lyra.ConnectionOptions;
 
 import java.io.IOException;
 
-public class LyraRetryPolicyDeserializer extends StdDeserializer<RetryPolicy> {
+public class LyraConnectionOptionsDeserializer extends StdDeserializer<ConnectionOptions> {
 
-  public LyraRetryPolicyDeserializer() {
-    super(RetryPolicy.class);
+  public LyraConnectionOptionsDeserializer() {
+    super(ConnectionOptions.class);
   }
 
   @Override
-  public RetryPolicy deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+  public ConnectionOptions deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
     return null;
   }
 }

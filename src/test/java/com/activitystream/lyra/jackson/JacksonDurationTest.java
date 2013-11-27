@@ -21,7 +21,7 @@ public class JacksonDurationTest {
     public Duration duration5minutes;
     public Duration duration5hours;
     public Duration duration5days;
-    //public Duration durationInfinite;
+    public Duration durationInfinite;
   }
 
   public void isDurationJacksonConfigurable(){
@@ -40,7 +40,7 @@ public class JacksonDurationTest {
       assertEquals(dt.duration5minutes, Duration.minutes(5));
       assertEquals(dt.duration5hours, Duration.hours(5));
       assertEquals(dt.duration5days, Duration.days(5));
-      //assertEquals(dt.durationInfinite, Duration.inf());
+      assertEquals(dt.durationInfinite, Duration.inf());
       
     } catch (IOException e) {
       fail("Could not deserialize DurationTest class instance.", e);
